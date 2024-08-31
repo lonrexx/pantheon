@@ -1,0 +1,21 @@
+# Correct data
+ile1.txt:1234:Jozef:Miloslav:Hurban:Legal
+file1.txt:4567:Milan:Rastislav:Stefanik:Defence
+file1.txt:4563:Jozef::Murgas:Development
+file1.txt:0000::Murgas:Koala:Defence
+file2.txt:1111:Pista::Hufnagel:Sales
+file2.txt:4563:Pista::Hufnagel:Sales
+file2.txt:1131:Pista::Hufnagel:Sales
+file2.txt:4553:Pista::Hufnagel:Sales
+# Incorrect data
+incorrect_file.txt:incorrect:line:format
+incorrect_file.txt:1234:Too:Many:Fields:In:This:Line:Legal
+# Expected results
+output.txt:1234:jmhurban:Jozef:Miloslav:Hurban:Legal
+output.txt:4567:mrstefan:Milan:Rastislav:Stefanik:Defence
+output.txt:4563:jmurgas:Jozef::Murgas:Development
+output.txt:0000:mkoala::Murgas:Koala:Defence
+output.txt:1111:phufnage:Pista::Hufnagel:Sales
+output.txt:4563:phufnage1:Pista::Hufnagel:Sales
+output.txt:1131:phufnage2:Pista::Hufnagel:Sales
+output.txt:4553:phufnage3:Pista::Hufnagel:Sales
