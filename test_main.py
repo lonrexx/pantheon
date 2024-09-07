@@ -1,25 +1,19 @@
 import pytest
-from main import read_file, generate_username_from_list
+
+from main import read_file, generate_username_from_list, generate_username_from_line
+from test_f import parse_file
 
 def test_read_file():
-    assert read_file(path_to_files=['file1.txt', 'file2.txt']) == [['1234', 'Jozef', 'Miloslav', 'Hurban', 'Legal'], 
-                                      ['4567', 'Milan', 'Rastislav', 'Stefanik', 'Defence'], 
-                                      ['4563', 'Jozef', '', 'Murgas', 'Development'], 
-                                      ['0000', '', 'Murgas', 'Koala', 'Defence'],
-                                      ['1111', 'Pista', '', 'Hufnagel', 'Sales'],
-                                      ['4563', 'Pista', '', 'Hufnagel', 'Sales'],
-                                      ['1131', 'Pista', '', 'Hufnagel', 'Sales'],
-                                      ['4553', 'Pista', '', 'Hufnagel', 'Sales']]
+    input_files, output_list = parse_file("test_data_for_test_read_file_correct.txt")
 
+    assert read_file(input_files) == output_list
     
-    with pytest.raises(ValueError):
-        read_file('incorrect:line:format')
-    with pytest.raises(ValueError):
-        read_file('1234:Too:Many:Fields:In:This:Line')
+    input_files, output_list = parse_file("test_data_for_test_read_file_incorrect.txt")
+    assert read_file(input_files) == output_list
 
 
 def test_create_username():
-    generate_username_from_list(read_file(path_to_files=["file1.txt", "file2.txt"]), "output.txt")
+    generate_username_from_list(read_file(path_to_files=["files/test_files/file1.txt", "files/test_files/file2.txt"]), "output.txt")
 
     with open("output.txt", 'r') as file:
         lines = file.readlines()
@@ -32,3 +26,7 @@ def test_create_username():
         assert '4563:phufnage1:Pista::Hufnagel:Sales\n' in lines
         assert '1131:phufnage2:Pista::Hufnagel:Sales\n' in lines
         assert '4553:phufnage3:Pista::Hufnagel:Sales\n' in lines
+
+
+# def test_create_username_from_line():
+#     generate_username_from_line(info_line=[])

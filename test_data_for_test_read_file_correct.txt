@@ -1,0 +1,11 @@
+#input
+files/test_files/file1.txt files/test_files/file2.txt
+#output
+['1234', 'Jozef', 'Miloslav', 'Hurban', 'Legal'], 
+['4567', 'Milan', 'Rastislav', 'Stefanik', 'Defence'], 
+['4563', 'Jozef', '', 'Murgas', 'Development'], 
+['0000', '', 'Murgas', 'Koala', 'Defence'],
+['1111', 'Pista', '', 'Hufnagel', 'Sales'],
+['4563', 'Pista', '', 'Hufnagel', 'Sales'],
+['1131', 'Pista', '', 'Hufnagel', 'Sales'],
+['4553', 'Pista', '', 'Hufnagel', 'Sales'],

@@ -1,0 +1,6 @@
+# input 
+files/test_files/file4.txt files/test_files/file5.txt files/test_files/file6.txt
+# output
+['incorrect line format'],
+['incorrect line format'],
+['incorrect line format'],
